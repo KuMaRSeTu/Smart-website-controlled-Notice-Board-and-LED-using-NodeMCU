@@ -3,7 +3,6 @@
 #include <ESP8266HTTPClient.h>
 
 
-#define ON_Board_LED 2 
 #define LED_D8 15 //--> Defines an LED Pin. D8 = GPIO15
 
 
@@ -21,9 +20,6 @@ void setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password); 
   Serial.println("");
-    
-  pinMode(ON_Board_LED,OUTPUT);
-  digitalWrite(ON_Board_LED, HIGH);
 
   pinMode(LED_D8,OUTPUT); 
   digitalWrite(LED_D8, LOW);
@@ -31,14 +27,7 @@ void setup() {
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
-   
-    digitalWrite(ON_Board_LED, LOW);
-    delay(250);
-    digitalWrite(ON_Board_LED, HIGH);
-    delay(250);
   }
-  
-  digitalWrite(ON_Board_LED, HIGH); 
  
   Serial.println("");
   Serial.print("Successfully connected to : ");
